@@ -1,5 +1,8 @@
 package foodDeliveryApplication.model;
 
+import foodDeliveryApplication.model.MenuItem;
+import foodDeliveryApplication.model.Order;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +25,24 @@ public class Restaurant {
         }
     }
 
+    public MenuItem getMenuItemByName(String name) {
+        for (MenuItem item : menu) {
+            if (item.name.equalsIgnoreCase(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public void processOrder(Order order) {
         order.updateStatus("Preparing");
         orders.add(order);
         System.out.println("Order processed: " + order.getOrderDetails());
+    }
+
+    public void viewOrders() {
+        for (Order order : orders) {
+            System.out.println(order.getOrderDetails());
+        }
     }
 }

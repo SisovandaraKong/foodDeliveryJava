@@ -1,7 +1,7 @@
 package foodDeliveryApplication.model;
 
 public abstract class MenuItem {
-    protected String name;
+    public String name;
     protected float price;
     protected String description;
 
